@@ -28,12 +28,12 @@ st.markdown("""
     .metric-value {
         font-size: 2.2rem;
         font-weight: 700;
-        color: #111827;
+        color: #ffffff;
         line-height: 1.2;
     }
     .metric-label {
         font-size: 0.875rem;
-        color: #6b7280;
+        color: #e5e7eb;
         margin-bottom: 8px;
         font-weight: 500;
         text-transform: uppercase;
@@ -269,23 +269,6 @@ with tab1:
 
     st.markdown("### Spend Channels")
 
-    # Add definitions
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        st.markdown("""
-        <div style='background-color: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #3b82f6; margin-bottom: 20px;'>
-            <strong style='color: #1e40af;'>CPA (Cost Per Acquisition)</strong><br/>
-            <span style='font-size: 0.9rem; color: #475569;'>Average cost to acquire a customer across all conversions in the period</span>
-        </div>
-        """, unsafe_allow_html=True)
-    with col2:
-        st.markdown("""
-        <div style='background-color: #fef3c7; padding: 12px; border-radius: 6px; border-left: 4px solid #f59e0b; margin-bottom: 20px;'>
-            <strong style='color: #92400e;'>mCPA (Marginal Cost Per Acquisition)</strong><br/>
-            <span style='font-size: 0.9rem; color: #475569;'>Cost to acquire the last/next customer - indicates channel saturation when mCPA >> CPA</span>
-        </div>
-        """, unsafe_allow_html=True)
-
     # Calculate channel totals
     channel_data = filtered_df[filtered_df['channel'] != 'baseline'].groupby('channel').agg({
         'spend': 'sum',
@@ -384,6 +367,23 @@ with tab1:
         )
         
         st.plotly_chart(fig_performance, use_container_width=True)
+
+    # Add definitions below the charts
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        st.markdown("""
+        <div style='background-color: #f0f9ff; padding: 12px; border-radius: 6px; border-left: 4px solid #3b82f6; margin-top: 20px;'>
+            <strong style='color: #1e40af;'>CPA (Cost Per Acquisition)</strong><br/>
+            <span style='font-size: 0.9rem; color: #475569;'>Average cost to acquire a customer across all conversions in the period</span>
+        </div>
+        """, unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div style='background-color: #fef3c7; padding: 12px; border-radius: 6px; border-left: 4px solid #f59e0b; margin-top: 20px;'>
+            <strong style='color: #92400e;'>mCPA (Marginal Cost Per Acquisition)</strong><br/>
+            <span style='font-size: 0.9rem; color: #475569;'>Cost to acquire the last/next customer - indicates channel saturation when mCPA >> CPA</span>
+        </div>
+        """, unsafe_allow_html=True)
 
     # Performance by Channel
     st.markdown("### Performance by Channel")
