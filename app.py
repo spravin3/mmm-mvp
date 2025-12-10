@@ -418,6 +418,7 @@ with tab1:
                 marker=dict(color='#10b981'),
                 text=[f"{val:.1f}%" for val in over_performers['performance_index']],
                 textposition='outside',
+                textfont=dict(color='#000000'),
                 hovertemplate='<b>%{y}</b><br>Performance: %{x:.1f}%<extra></extra>'
             ))
             fig_over.update_layout(
@@ -447,6 +448,7 @@ with tab1:
                 marker=dict(color='#ef4444'),
                 text=[f"{val:.1f}%" for val in under_performers['performance_index']],
                 textposition='outside',
+                textfont=dict(color='#000000'),
                 hovertemplate='<b>%{y}</b><br>Performance: %{x:.1f}%<extra></extra>'
             ))
             fig_under.update_layout(
@@ -656,7 +658,8 @@ with tab2:
             name='Current Allocation',
             marker=dict(color='#94a3b8'),
             text=[f"${v/1e3:.0f}k" for v in channel_performance['current_allocation']],
-            textposition='outside'
+            textposition='outside',
+            textfont=dict(color='#000000')
         ))
         
         fig_reallocation.add_trace(go.Bar(
@@ -665,7 +668,8 @@ with tab2:
             name='Optimized Allocation',
             marker=dict(color='#6366f1'),
             text=[f"${v/1e3:.0f}k" for v in channel_performance['optimized_allocation']],
-            textposition='outside'
+            textposition='outside',
+            textfont=dict(color='#000000')
         ))
         
         fig_reallocation.update_layout(
