@@ -52,7 +52,7 @@ st.markdown("""
     }
     .overview-text {
         font-size: 1.1rem;
-        color: #374151;
+        color: #ffffff;
         padding: 20px 0;
         border-bottom: 1px solid #e5e7eb;
         margin-bottom: 20px;
@@ -308,6 +308,7 @@ with tab1:
             marker=dict(color=colors),
             text=[f"${s/1e6:.1f}M" if s >= 1e6 else f"${s/1e3:.0f}k" for s in channel_data['spend']],
             textposition='outside',
+            textfont=dict(color='#000000'),
             hovertemplate='<b>%{y}</b><br>Spend: $%{x:,.0f}<extra></extra>',
             showlegend=False
         ))
@@ -336,6 +337,7 @@ with tab1:
             marker=dict(color='#f59e0b'),
             text=[f"${m:.0f}" for m in channel_data['mcpa']],
             textposition='outside',
+            textfont=dict(color='#000000'),
             hovertemplate='<b>%{y}</b><br>mCPA: $%{x:.2f}<extra></extra>'
         ))
         
@@ -347,6 +349,7 @@ with tab1:
             marker=dict(color='#3b82f6'),
             text=[f"${c:.0f}" for c in channel_data['cpa']],
             textposition='outside',
+            textfont=dict(color='#000000'),
             hovertemplate='<b>%{y}</b><br>CPA: $%{x:.2f}<extra></extra>'
         ))
         
