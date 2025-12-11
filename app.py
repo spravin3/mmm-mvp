@@ -28,12 +28,13 @@ st.markdown("""
     .metric-value {
         font-size: 2.2rem;
         font-weight: 700;
-        color: #ffffff;
+        color: var(--text-color);
         line-height: 1.2;
     }
     .metric-label {
         font-size: 0.875rem;
-        color: #e5e7eb;
+        color: var(--text-color);
+        opacity: 0.8;
         margin-bottom: 8px;
         font-weight: 500;
         text-transform: uppercase;
@@ -52,9 +53,9 @@ st.markdown("""
     }
     .overview-text {
         font-size: 1.1rem;
-        color: #ffffff;
+        color: var(--text-color);
         padding: 20px 0;
-        border-bottom: 1px solid #e5e7eb;
+        border-bottom: 1px solid var(--secondary-background-color);
         margin-bottom: 20px;
     }
     h1 {
